@@ -76,11 +76,11 @@ const ProductCarousel: React.FC = () => {
   }
 
   const nextSlide = () => {
-    setCurrentIndex(prev => Math.min(prev + 1, maxIndex))
+    setCurrentIndex(prev => Math.min(prev + 2, maxIndex))
   }
 
   const prevSlide = () => {
-    setCurrentIndex(prev => Math.max(prev - 1, 0))
+    setCurrentIndex(prev => Math.max(prev - 2, 0))
   }
 
   const goToSlide = (index: number) => {
@@ -333,7 +333,7 @@ const ProductCarousel: React.FC = () => {
             <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
               <div 
                 className="h-full bg-gray-600 rounded-full transition-all duration-300 ease-out"
-                style={{ width: `${((currentIndex) / (products.length)) * 100}%` }}
+                style={{ width: `${((currentIndex) / ((products.length/2))) * 100}%` }}
               />
             </div>
           </div>

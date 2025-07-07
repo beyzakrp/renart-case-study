@@ -1,181 +1,161 @@
-# Renart - Mücevher Koleksiyonu
+# Renart Premium Jewelry Collection
 
-Bu proje, Renart'ın premium mücevher koleksiyonunu sergileyen modern bir web uygulamasıdır. Next.js 15 ile geliştirilmiş olup, gerçek zamanlı altın fiyatları ile dinamik ürün fiyatlandırması sunar.
+A modern, jewelry showcase application built with Next.js 15, featuring real-time gold pricing, advanced filtering, and an elegant product carousel.
 
-## 🌟 Özellikler
+## ✨ Features
 
-### Tasarım ve UI
-- ✨ **Pixel-Perfect Tasarım**: Verilen tasarıma sadık, modern ve zarif arayüz
-- 🎨 **Özel Font Entegrasyonu**: Avenir (Book & Medium) ve Montserrat (Regular, Medium, SemiBold) fontları
-- 📱 **Responsive Tasarım**: Mobil ve masaüstü uyumlu
-- 🎯 **Renk Seçici**: Her ürün için 3 farklı altın rengi (Sarı, Beyaz, Rose)
-- ⭐ **Yıldız Puanlama**: 5 üzerinden dinamik puanlama sistemi
+### 🎨 User Interface
+- **Pixel-perfect design** with custom typography (Avenir & Montserrat)
+- **Product carousel** with smooth transitions and navigation
+- **Interactive color selection** for jewelry variants (Yellow, White, Rose Gold)
+- **5-star rating system** with visual feedback
+- **Modern scroll progress bar** for carousel navigation
 
-### Ürün Carousel
-- ⬅️➡️ **Ok Tuşları ile Navigasyon**: Sol/sağ ok tuşları ile gezinme
-- 👆 **Swipe Desteği**: Mobil ve masaüstünde kaydırma desteği
-- 🎯 **Dots Navigation**: Sayfa göstergesi ve hızlı geçiş
-- 📊 **Progress Bar**: İlerleme çubuğu
-- ⌨️ **Klavye Desteği**: Klavye ok tuşları ile kontrol
+### 🛍️ Product Management
+- **Dynamic product cards** with hover effects
+- **Real-time price display** based on current gold prices
+- **Product image variants** for different gold types
+- **Star ratings** converted from popularity scores
 
-### API ve Backend
-- 💰 **Gerçek Zamanlı Altın Fiyatları**: Metals API entegrasyonu
-- 🧮 **Dinamik Fiyat Hesaplama**: (popularityScore + 1) × weight × goldPrice
-- 🔍 **Gelişmiş Filtreleme**: Fiyat aralığı ve popülerlik skoru filtreleri
-- ⚡ **Performanslı Cache**: 5 dakika cache süresi
-- 🛡️ **Hata Yönetimi**: Kapsamlı hata kontrolü ve fallback mekanizmaları
+### 🔍 Advanced Filtering
+- **Price range filtering** (minimum and maximum USD)
+- **Star rating filtering** (0-5 stars)
+- **Real-time filter application** with dedicated filter button
+- **Filter persistence** and easy clearing options
 
-### Bonus Özellikler
-- 🎛️ **İnteraktif Filtreler**: Minimum/maksimum fiyat ve popülerlik filtreleri
-- 🔄 **Canlı Filtreleme**: Gerçek zamanlı sonuç güncelleme
-- 📈 **Sayaç Gösterimi**: Toplam ürün sayısı
-- 🧹 **Filtre Temizleme**: Tek tıkla tüm filtreleri sıfırlama
+### ⚡ Performance & API
+- **Real-time gold price integration** from Gold-API
+- **Caching mechanisms** for improved performance
+- **RESTful API endpoints** with query parameter support
+- **Error handling** and loading states
 
-## 🚀 Kurulum
+### 🎮 User Experience
+- **Smooth animations** and transitions
+- **Accessibility features** with proper ARIA labels
 
-### Gereksinimler
+## 🚀 Quick Start
+
+### Prerequisites
 - Node.js 18+ 
-- npm veya yarn
+- npm or yarn
 
-### Adımlar
-1. **Repository'yi klonlayın:**
+### Installation
+
+1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/beyzakrp/renart-case-study.git
    cd renart-case-study
    ```
 
-2. **Bağımlılıkları yükleyin:**
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. **Geliştirme sunucusunu başlatın:**
+3. **Start development server**
    ```bash
    npm run dev
    ```
 
-4. **Tarayıcınızda açın:**
+4. **Open in browser**
    ```
    http://localhost:3000
    ```
 
-## 📁 Proje Yapısı
+## 📁 Project Structure
 
 ```
 src/
 ├── app/
-│   ├── layout.tsx           # Ana layout (Avenir header)
-│   ├── page.tsx             # Ana sayfa
-│   └── api/
-│       └── products/
-│           └── route.ts     # Ürünler API endpoint
+│   ├── layout.tsx           # Root layout with fonts
+│   ├── page.tsx             # Homepage
+│   └── api/products/        # Products API endpoint
 ├── components/
-│   ├── ProductCard.tsx      # Ürün kartları
-│   └── ProductCarousel.tsx  # Carousel komponenti
+│   ├── ProductCard.tsx      # Individual product display
+│   └── ProductCarousel.tsx  # Main carousel component
 ├── styles/
-│   └── globals.css          # Font tanımları ve custom CSS
-└── products.json            # Ürün verileri
+│   └── globals.css          # Global styles and font definitions
+└── products.json            # Product data
 
 public/
-└── fonts/                   # Avenir & Montserrat fontları
+└── fonts/                   # Custom font files
+    ├── Avenir-Book.ttf
+    ├── Avenir-Medium.ttf
+    ├── Montserrat-Regular.ttf
+    ├── Montserrat-Medium.otf
+    └── Montserrat-SemiBold.otf
 ```
 
-## 🎯 API Endpoints
+## 🔌 API Endpoints
 
-### GET /api/products
-Tüm ürünleri gerçek zamanlı fiyatlarla döndürür.
+### GET `/api/products`
+Retrieve products with optional filtering
 
-**Query Parametreleri:**
-- `minPrice`: Minimum fiyat (USD)
-- `maxPrice`: Maksimum fiyat (USD) 
-- `minPopularity`: Minimum popülerlik skoru (0-1)
-- `maxPopularity`: Maksimum popülerlik skoru (0-1)
+**Query Parameters:**
+- `minPrice` - Minimum price in USD
+- `maxPrice` - Maximum price in USD  
+- `minPopularity` - Minimum popularity score (0-1)
+- `maxPopularity` - Maximum popularity score (0-1)
 
-**Örnek Kullanım:**
+**Example:**
 ```bash
-# Tüm ürünler
-GET /api/products
-
-# Fiyat aralığı filtresi
-GET /api/products?minPrice=300&maxPrice=500
-
-# Popülerlik filtresi
-GET /api/products?minPopularity=0.8
-
-# Kombinasyon filtre
-GET /api/products?minPrice=200&maxPrice=400&minPopularity=0.7
+curl "https://renart-case-study-one.vercel.app/api/products?minPrice=400&maxPrice=800"
 ```
 
-## 🎨 Tasarım Detayları
+## 🎨 Design System
 
-### Renk Paleti
+### Color Palette
+- **Primary**: #1f2937 (Gray 800)
+- **Secondary**: #6b7280 (Gray 500)
+- **Background**: #ffffff (White)
+- **Accent**: #f9fafb (Gray 50)
 - **Yellow Gold**: `#E6CA97`
 - **White Gold**: `#D9D9D9` 
 - **Rose Gold**: `#E1A4A9`
-- **Ana Metin**: `#374151` (Gray 700)
-- **İkincil Metin**: `#6B7280` (Gray 500)
 
-### Tipografi
-- **Başlıklar**: Avenir Book/Medium
-- **İçerik**: Montserrat Regular/Medium/SemiBold
-- **Header**: "Avenir - Book - 45" (sağ üst köşe)
+### Typography
+- **Headers**: Avenir Book (45px)
+- **Body**: Montserrat Regular/Medium/SemiBold
+- **UI Elements**: System fonts with fallbacks
 
-### Etkileşimler
-- Hover efektleri ve geçiş animasyonları
-- Renk seçici aktif durumu 
-- Carousel geçiş animasyonları
-- Loading ve error durumları
-
-## 🛠️ Teknoloji Stack
+## 🛠️ Technology Stack
 
 - **Framework**: Next.js 15
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **Fonts**: Local font files (Avenir, Montserrat)
-- **API**: RESTful API with real-time data
-- **External API**: Metals API (altın fiyatları)
+- **Fonts**: Avenir, Montserrat
+- **API**: Next.js API Routes with real-time gold pricing
+- **Build Tool**: Next.js built-in bundler
 
-## 📱 Responsive Tasarım
 
-- **Desktop**: 4 ürün yan yana
-- **Tablet**: 2-3 ürün yan yana  
-- **Mobile**: 1-2 ürün yan yana
-- Touch ve swipe desteği tüm cihazlarda
-
-## 🔧 Development
-
-### Build
-```bash
-npm run build
-```
-
-### Start Production
-```bash
-npm start
-```
-
-### Lint
-```bash
-npm run lint
-```
 
 ## 🚀 Deployment
 
-Proje Vercel, Netlify veya benzeri platformlarda kolayca deploy edilebilir:
+### Vercel (Recommended)
+1. Push to GitHub repository
+2. Connect to Vercel
+3. Deploy automatically
 
+### Other Platforms
 ```bash
-# Vercel ile
-npx vercel
-
-# Netlify ile
 npm run build
-# dist klasörünü Netlify'a yükleyin
+npm start
 ```
 
-## 📄 Lisans
+## 🔧 Development Commands
 
-Bu proje case study amaçlıdır.
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
+
+## 📝 License
+
+This project is developed for case study purposes.
 
 ---
 
-**Renart** - Premium mücevher koleksiyonu için modern web deneyimi ✨ 
+**Live Demo**: [https://renart-case-study-one.vercel.app/](https://renart-case-study-one.vercel.app/)  
+**Repository**: [GitHub](https://github.com/beyzakrp/renart-case-study.git) 

@@ -194,7 +194,7 @@ const ProductCarousel: React.FC = () => {
       {/* Filter Toggle Button */}
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-medium text-gray-900" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-          Ürünler ({products.length})
+          Products ({products.length})
         </h2>
         <button
           onClick={() => setShowFilters(!showFilters)}

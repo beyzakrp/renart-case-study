@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font Definitions */
+@font-face {
+  font-family: 'Avenir';
+  src: url('/fonts/Avenir-Book.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('/fonts/Avenir-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer components {
+  .product-card {
+    @apply bg-white rounded-lg transition-all duration-300;
+    box-shadow: none;
+    border: none;
+  }
+  
+  .product-card:hover {
+    @apply shadow-sm;
+  }
+  
+  /* Color Selector Styles */
+  .color-selector {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+  
+  .color-selector:hover {
+    transform: scale(1.1);
+  }
+  
+  .color-selector.active {
+    @apply ring-1 ring-gray-600 ring-offset-2;
+  }
+  
+  .star-rating {
+    @apply flex items-center gap-1;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Carousel Navigation */
+  .carousel-nav {
+    @apply absolute top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white rounded-full flex items-center justify-center transition-all duration-200;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0f0f0;
+  }
+  
+  .carousel-nav:hover {
+    @apply bg-gray-50;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+  
+  .carousel-nav:disabled {
+    @apply opacity-20 cursor-not-allowed;
+  }
+  
+  .carousel-nav.left {
+    @apply -left-4;
+  }
+  
+  .carousel-nav.right {
+    @apply -right-4;
+  }
+  
+  /* Progress Bar */
+  .progress-bar {
+    @apply w-full h-0.5 bg-gray-200 rounded-full overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-gray-500 transition-all duration-300;
+  }
+} 
